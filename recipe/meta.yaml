@@ -22,8 +22,8 @@ requirements:
   run:
     - python
     - dagster {{ version }}.*
-    - paramiko 2.4.*
-    - sshtunnel 0.1.5.*
+    - paramiko
+    - sshtunnel
 
 test:
   imports:
@@ -38,4 +38,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - xhochy
+    - conda-forge/dagster

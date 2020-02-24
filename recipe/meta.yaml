@@ -1,18 +1,18 @@
 {% set name = "dagster_ssh" %}
-{% set version = "0.6.5" %}
+{% set version = "0.7.1" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: f18ecf5c008f101831840601efc0a9cf493cf8ea3edcc2e44e8f6ecc80e726a7
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('_', '-') }}-{{ version }}.tar.gz
+  sha256: 980d8288ded4060dbf94e0e672adff9b95895ae3825050f9288f08eb0380e1ba
 
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -30,11 +30,11 @@ test:
     - dagster_ssh
 
 about:
-  home: "https://github.com/dagster-io/dagster/tree/master/python_modules/libraries/dagster-ssh"
+  home: https://github.com/dagster-io/dagster/tree/master/python_modules/libraries/dagster-ssh
   license: Apache-2.0
   license_family: APACHE
   license_file: LICENSE
-  summary: "Package for ssh Dagster framework components."
+  summary: Package for ssh Dagster framework components.
 
 extra:
   recipe-maintainers:
